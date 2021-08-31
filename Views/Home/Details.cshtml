@@ -1,0 +1,68 @@
+﻿@model HomeDetailsViewModel
+@{
+
+    ViewBag.Title = "Student Details From Details";
+    var photo = "~/images/" + (Model.Stydentprop.photopath ?? "user.jpg");
+}
+
+@*<h2>@Model.PageTitle</h2>*@
+@*@{
+        var student = ViewData["Student"] as WebApplication1.Models.Student;
+    }*@
+@*<div>
+        Name: @student.name;
+    </div>
+    <div>
+        Department: @student.department;
+    </div>
+    <div>
+        Email: @student.email;
+    </div>*@
+@*<div>
+        Name: @ViewBag.stud.name;
+    </div>
+    <div>
+        Department: @ViewBag.stud.department;
+    </div>
+    <div>
+        Email: @ViewBag.stud.email;
+    </div>*@
+
+@*<div>
+    Name: @Model.Stydentprop.name;
+</div>
+<div>
+    Department: @Model.Stydentprop.department;
+</div>
+<div>
+    Email: @Model.Stydentprop.email;
+</div>*@
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Stydentprop.name</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photo" style="width:200px;height:200px;" asp-append-version="true"/>
+
+                <h4>Student ID : @Model.Stydentprop.id</h4>
+                <h4>Email : @Model.Stydentprop.email</h4>
+                <h4>Department : @Model.Stydentprop.department</h4>
+
+            </div>
+            <div class="card-footer text-center">
+              <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back</a>
+                @*<a href="#" class="btn btn-primary">Back</a>*@
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@Model.Stydentprop.id" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section Script {
+    <script src="~/js/text.js"></script>
+}*@

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewBag.Title = "Student Details from Index";
+}
+@*<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Deparment</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stdata in Model)
+        {
+            <tr>
+                <td>@stdata.name</td>
+                <td>@stdata.department</td>
+                <td>@stdata.email</td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+<div class="card-deck">
+    @foreach (var stdata in Model)
+    {
+        var photo = "~/images/" + (stdata.photopath ?? "user.jpg");
+        <div class="card m-3 align-self-start">
+            <div class="card-header">
+                <h3>@stdata.name</h3>
+            </div>
+            <img class="card-img-top rounded mx-auto d-block" src="@photo" style="width:200px; height:200px;" asp-append-version="true" />
+            <div class="card-footer text-center">
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@stdata.id" class="btn btn-primary">View</a>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@stdata.id" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>
